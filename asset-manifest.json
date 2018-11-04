@@ -1,15 +1,15 @@
 {
-  "main.css": "https://github.com/peacethekuma/swapi-react-app/static/css/main.06b460f1.chunk.css",
-  "main.js": "https://github.com/peacethekuma/swapi-react-app/static/js/main.b478dc13.chunk.js",
-  "main.js.map": "https://github.com/peacethekuma/swapi-react-app/static/js/main.b478dc13.chunk.js.map",
-  "static/css/1.76f5fe47.chunk.css": "https://github.com/peacethekuma/swapi-react-app/static/css/1.76f5fe47.chunk.css",
-  "static/js/1.3004f438.chunk.js": "https://github.com/peacethekuma/swapi-react-app/static/js/1.3004f438.chunk.js",
-  "static/js/1.3004f438.chunk.js.map": "https://github.com/peacethekuma/swapi-react-app/static/js/1.3004f438.chunk.js.map",
-  "runtime~main.js": "https://github.com/peacethekuma/swapi-react-app/static/js/runtime~main.45576fb6.js",
-  "runtime~main.js.map": "https://github.com/peacethekuma/swapi-react-app/static/js/runtime~main.45576fb6.js.map",
-  "static/css/1.76f5fe47.chunk.css.map": "https://github.com/peacethekuma/swapi-react-app/static/css/1.76f5fe47.chunk.css.map",
-  "static/css/main.06b460f1.chunk.css.map": "https://github.com/peacethekuma/swapi-react-app/static/css/main.06b460f1.chunk.css.map",
-  "index.html": "https://github.com/peacethekuma/swapi-react-app/index.html",
-  "precache-manifest.31c2bf1fecac7b8c8d4f24b96b1e372c.js": "https://github.com/peacethekuma/swapi-react-app/precache-manifest.31c2bf1fecac7b8c8d4f24b96b1e372c.js",
-  "service-worker.js": "https://github.com/peacethekuma/swapi-react-app/service-worker.js"
+  "main.css": "/peacethekuma/swapi-react-app/static/css/main.06b460f1.chunk.css",
+  "main.js": "/peacethekuma/swapi-react-app/static/js/main.f918970c.chunk.js",
+  "main.js.map": "/peacethekuma/swapi-react-app/static/js/main.f918970c.chunk.js.map",
+  "static/css/1.76f5fe47.chunk.css": "/peacethekuma/swapi-react-app/static/css/1.76f5fe47.chunk.css",
+  "static/js/1.3004f438.chunk.js": "/peacethekuma/swapi-react-app/static/js/1.3004f438.chunk.js",
+  "static/js/1.3004f438.chunk.js.map": "/peacethekuma/swapi-react-app/static/js/1.3004f438.chunk.js.map",
+  "runtime~main.js": "/peacethekuma/swapi-react-app/static/js/runtime~main.1642d34d.js",
+  "runtime~main.js.map": "/peacethekuma/swapi-react-app/static/js/runtime~main.1642d34d.js.map",
+  "static/css/1.76f5fe47.chunk.css.map": "/peacethekuma/swapi-react-app/static/css/1.76f5fe47.chunk.css.map",
+  "static/css/main.06b460f1.chunk.css.map": "/peacethekuma/swapi-react-app/static/css/main.06b460f1.chunk.css.map",
+  "index.html": "/peacethekuma/swapi-react-app/index.html",
+  "precache-manifest.e2d2419f2fa3901e96ed095e42513a46.js": "/peacethekuma/swapi-react-app/precache-manifest.e2d2419f2fa3901e96ed095e42513a46.js",
+  "service-worker.js": "/peacethekuma/swapi-react-app/service-worker.js"
 }

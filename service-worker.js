@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://github.com/peacethekuma/swapi-react-app/precache-manifest.31c2bf1fecac7b8c8d4f24b96b1e372c.js"
+  "/peacethekuma/swapi-react-app/precache-manifest.e2d2419f2fa3901e96ed095e42513a46.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("https://github.com/peacethekuma/swapi-react-app/index.html", {
+workbox.routing.registerNavigationRoute("/peacethekuma/swapi-react-app/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
