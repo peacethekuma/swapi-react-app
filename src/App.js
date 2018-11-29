@@ -8,6 +8,7 @@ import PlanetsList from './components/PlanetsList';
 import SpeciesList from './components/SpeciesList';
 import StarshipsList from './components/StarshipsList';
 import FilmsList from './components/FilmsList';
+import Loading from './components/Loading';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class App extends React.Component {
       pages: {
         next: '',
         prev: ''
-      }
+      },
+      loading:false
     }
     // this.onButtonCategorySelection = this.onButtonCategorySelection.bind(this);
   }
@@ -30,6 +32,9 @@ class App extends React.Component {
   }
 
   onButtonNextPage = () => {
+    this.setState({
+      loading:true
+    })
     fetch(this.state.pages.next)
       .then((response) => response.json())
       .then((data) => this.setState({
@@ -37,11 +42,15 @@ class App extends React.Component {
         pages: {
           next: data.next,
           prev: data.previous
-        }
+        },
+        loading:false
       }))
   }
 
   onButtonPrevPage = () => {
+    this.setState({
+      loading:true
+    })
     fetch(this.state.pages.prev)
       .then((response) => response.json())
       .then((data) => this.setState({
@@ -49,14 +58,16 @@ class App extends React.Component {
         pages: {
           next: data.next,
           prev: data.previous
-        }
+        },
+        loading:false
       }))
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.route !== prevState.route) {
-      console.log(prevProps, prevState);
-
+      this.setState({
+        loading:true
+      })
       fetch(`https://swapi.co/api/${this.state.route}`)
         .then((response) => response.json())
         .then((data) => this.setState({
@@ -64,16 +75,18 @@ class App extends React.Component {
           pages: {
             next: data.next,
             prev: data.previous
-          }
+          },
+          loading:false
         }))
     }
   }
 
 
-  render() {
 
-    if (this.state.results.length === 0 && this.state.route !== '') {
-      return (<h1 className="pa3 tc">Loading...</h1>)
+  render() {
+    
+    if (this.state.loading === true) {
+      return (<Loading />)
     } else {
       switch (this.state.route) {
         case 'people':
