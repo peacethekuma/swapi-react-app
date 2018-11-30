@@ -7,7 +7,7 @@ const CategoriesList = (props) => {
   const list = ['people', 'planets', 'species', 'starships', 'films'];
 
   const buttonList = list.map((item, i) => {
-    return <CategoryButton key={i} category={item} onButtonCategorySelection={props.onButtonCategorySelection} />
+    return <CategoryButton key={i} category={item} route={props.route} onButtonCategorySelection={props.onButtonCategorySelection} />
   })
 
   return (

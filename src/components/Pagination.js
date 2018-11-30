@@ -1,6 +1,6 @@
 import React from 'react';
-import leftArrow from './image/left.png';
-import rightArrow from './image/right.png'; 
+import leftArrow from '../image/left.png';
+import rightArrow from '../image/right.png'; 
 
 
 

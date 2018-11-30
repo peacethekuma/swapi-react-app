@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import 'tachyons';
-import CategoriesList from './CategoriesList';
-import Pagination from './Pagination';
+import CategoriesList from './components/CategoriesList';
+import Pagination from './components/Pagination';
 import PersonList from './components/PersonList';
 import PlanetsList from './components/PlanetsList';
 import SpeciesList from './components/SpeciesList';
@@ -92,8 +92,8 @@ class App extends React.Component {
         case 'people':
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
               <PersonList persons={this.state.results} />
               <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
             </div>
@@ -101,8 +101,8 @@ class App extends React.Component {
         case 'planets':
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
               <PlanetsList planets={this.state.results} />
               <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
             </div>
@@ -110,8 +110,8 @@ class App extends React.Component {
           case 'species':
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
               <SpeciesList species={this.state.results} />
               <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
             </div>
@@ -119,8 +119,8 @@ class App extends React.Component {
           case 'starships':
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
               <StarshipsList starships={this.state.results} />
               <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
             </div>
@@ -128,16 +128,16 @@ class App extends React.Component {
           case 'films':
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
               <FilmsList films={this.state.results} />
             </div>
           )
         default:
           return (
             <div className="App w-80-l center">
-              <h1 className="tc"> Star Wars </h1>
-              <CategoriesList onButtonCategorySelection={this.onButtonCategorySelection} />
+              <h1 className="tc"> SW-API APP </h1>
+              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
             </div>
           )
       }
