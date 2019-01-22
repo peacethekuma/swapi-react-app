@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import 'tachyons';
 import CategoriesList from './components/CategoriesList';
-import Pagination from './components/Pagination';
 import PersonList from './components/PersonList';
 import PlanetsList from './components/PlanetsList';
 import SpeciesList from './components/SpeciesList';
 import StarshipsList from './components/StarshipsList';
 import FilmsList from './components/FilmsList';
+import Wrapper from './components/Wrapper';
 import Loading from './components/Loading';
 
 class App extends React.Component {
@@ -20,7 +20,7 @@ class App extends React.Component {
         next: '',
         prev: ''
       },
-      loading:false
+      loading: false
     }
     // this.onButtonCategorySelection = this.onButtonCategorySelection.bind(this);
   }
@@ -33,7 +33,7 @@ class App extends React.Component {
 
   onButtonNextPage = () => {
     this.setState({
-      loading:true
+      loading: true
     })
     fetch(this.state.pages.next)
       .then((response) => response.json())
@@ -43,13 +43,13 @@ class App extends React.Component {
           next: data.next,
           prev: data.previous
         },
-        loading:false
+        loading: false
       }))
   }
 
   onButtonPrevPage = () => {
     this.setState({
-      loading:true
+      loading: true
     })
     fetch(this.state.pages.prev)
       .then((response) => response.json())
@@ -59,14 +59,14 @@ class App extends React.Component {
           next: data.next,
           prev: data.previous
         },
-        loading:false
+        loading: false
       }))
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.route !== prevState.route) {
       this.setState({
-        loading:true
+        loading: true
       })
       fetch(`https://swapi.co/api/${this.state.route}`)
         .then((response) => response.json())
@@ -76,7 +76,7 @@ class App extends React.Component {
             next: data.next,
             prev: data.previous
           },
-          loading:false
+          loading: false
         }))
     }
   }
@@ -84,61 +84,47 @@ class App extends React.Component {
 
 
   render() {
-    
+
     if (this.state.loading === true) {
       return (<Loading />)
     } else {
       switch (this.state.route) {
         case 'people':
           return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-              <PersonList persons={this.state.results} />
-              <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
-            </div>
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+              <PersonList persons={ this.state.results } />
+            </Wrapper>
           )
         case 'planets':
           return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-              <PlanetsList planets={this.state.results} />
-              <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
-            </div>
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+              <PlanetsList planets={ this.state.results } />
+            </Wrapper>
           )
-          case 'species':
+        case 'species':
           return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-              <SpeciesList species={this.state.results} />
-              <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
-            </div>
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+              <SpeciesList species={ this.state.results } />
+            </Wrapper>
           )
-          case 'starships':
+        case 'starships':
+          return (
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+              <StarshipsList starships={ this.state.results } />
+            </Wrapper>
+          )
+        case 'films':
           return (
             <div className="App w-80-l center">
               <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-              <StarshipsList starships={this.state.results} />
-              <Pagination pages={this.state.pages} onButtonPrevPage={this.onButtonPrevPage} onButtonNextPage={this.onButtonNextPage} />
-            </div>
-          )          
-          case 'films':
-          return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-              <FilmsList films={this.state.results} />
+              <CategoriesList route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } />
+              <FilmsList films={ this.state.results } />
             </div>
           )
         default:
           return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={this.state.route} onButtonCategorySelection={this.onButtonCategorySelection} />
-            </div>
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+            </Wrapper>
           )
       }
     }
