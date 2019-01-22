@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import 'tachyons';
-import CategoriesList from './components/CategoriesList';
-import PersonList from './components/PersonList';
-import PlanetsList from './components/PlanetsList';
-import SpeciesList from './components/SpeciesList';
-import StarshipsList from './components/StarshipsList';
-import FilmsList from './components/FilmsList';
 import Wrapper from './components/Wrapper';
 import Loading from './components/Loading';
+
+const PersonList = React.lazy(() => import('./components/PersonList'));
+const PlanetsList = React.lazy(() => import('./components/PlanetsList'));
+const SpeciesList = React.lazy(() => import('./components/SpeciesList'));
+const StarshipsList = React.lazy(() => import('./components/StarshipsList'));
+const FilmsList = React.lazy(() => import('./components/FilmsList'));
 
 class App extends React.Component {
   constructor(props) {
@@ -92,34 +92,44 @@ class App extends React.Component {
         case 'people':
           return (
             <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
-              <PersonList persons={ this.state.results } />
+
+              <React.Suspense fallback={ <Loading /> }>
+                <PersonList persons={ this.state.results } />
+              </React.Suspense>
+
             </Wrapper>
           )
         case 'planets':
           return (
             <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
-              <PlanetsList planets={ this.state.results } />
+              <React.Suspense fallback={ <Loading /> }>
+                <PlanetsList planets={ this.state.results } />
+              </React.Suspense>
             </Wrapper>
           )
         case 'species':
           return (
             <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
-              <SpeciesList species={ this.state.results } />
+              <React.Suspense fallback={ <Loading /> }>
+                <SpeciesList species={ this.state.results } />
+              </React.Suspense>
             </Wrapper>
           )
         case 'starships':
           return (
             <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
-              <StarshipsList starships={ this.state.results } />
+              <React.Suspense fallback={ <Loading /> }>
+                <StarshipsList starships={ this.state.results } />
+              </React.Suspense>
             </Wrapper>
           )
         case 'films':
           return (
-            <div className="App w-80-l center">
-              <h1 className="tc"> SW-API APP </h1>
-              <CategoriesList route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } />
-              <FilmsList films={ this.state.results } />
-            </div>
+            <Wrapper route={ this.state.route } onButtonCategorySelection={ this.onButtonCategorySelection } pages={ this.state.pages } onButtonPrevPage={ this.onButtonPrevPage } onButtonNextPage={ this.onButtonNextPage }>
+              <React.Suspense fallback={ <Loading /> }>
+                <FilmsList films={ this.state.results } />
+              </React.Suspense>
+            </Wrapper>
           )
         default:
           return (
